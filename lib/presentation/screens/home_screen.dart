@@ -7,7 +7,7 @@ import '../widgets/gif_card.dart';
 import 'favorites_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  final AuthController authController = Get.find();
+  final AuthController authController = Get.put(AuthController());
   final GifController gifController = Get.put(GifController());
   final TextEditingController searchController = TextEditingController();
 

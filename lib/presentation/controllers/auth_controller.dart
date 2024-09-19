@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../data/utils/app_storage.dart';
@@ -23,6 +24,7 @@ class AuthController extends GetxController {
           email: email, password: password);
       // Get the auth token
       String? token = await userCredential.user?.getIdToken();
+      debugPrint(token);
       isAuthenticated.value = true;
       Get.offAll(HomeScreen());
       Get.snackbar("Logged In Successfully", "success: loggedin");
