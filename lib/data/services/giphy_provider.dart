@@ -3,9 +3,12 @@ import 'dart:convert';
 import '../models/gif_model.dart';
 
 class ApiService {
+  // Giphy API Key
   final String apiKey = 'tGXDhEofgALm5Dt33YyCjcGQ2iBbkdEu';
+  // API Base URL
   final String baseUrl = 'https://api.giphy.com/v1/gifs';
 
+  // Fetching Trending Gifs List
   Future<List<GifModel>> fetchTrendingGifs() async {
     final response =
         await http.get(Uri.parse('$baseUrl/trending?api_key=$apiKey&limit=20'));
@@ -17,6 +20,7 @@ class ApiService {
     }
   }
 
+  // Fetching Search Gifs List
   Future<List<GifModel>> searchGifs(String query) async {
     final response = await http
         .get(Uri.parse('$baseUrl/search?api_key=$apiKey&q=$query&limit=20'));

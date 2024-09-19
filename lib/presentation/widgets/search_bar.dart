@@ -13,7 +13,7 @@ class SearchBar extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: TextField(
         controller: searchController,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: 'Search GIFs',
           border: OutlineInputBorder(),
         ),

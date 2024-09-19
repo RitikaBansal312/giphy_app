@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class GiphyController extends GetxController {
+  // Initializing Variables
   var trendingGifs = [].obs;
   var searchedGifs = [].obs;
   var isLoading = false.obs;
@@ -15,6 +16,7 @@ class GiphyController extends GetxController {
     super.onInit();
   }
 
+  // Fetching Trending Gifs List
   void fetchTrendingGifs() async {
     isLoading(true);
     var response = await http.get(Uri.parse(
@@ -27,6 +29,7 @@ class GiphyController extends GetxController {
     isLoading(false);
   }
 
+  // Fetching Search Gifs List
   void searchGifs(String query) async {
     searchedGifs.clear();
     isLoading(true);
@@ -40,11 +43,14 @@ class GiphyController extends GetxController {
     isLoading(false);
   }
 
+  // Load More Gifs
   void loadMoreGifs() {
     if (searchedGifs.isNotEmpty) {
-      searchGifs(searchedGifs[0]['title']); // Continue search pagination
+      // Continue search pagination
+      searchGifs(searchedGifs[0]['title']);
     } else {
-      fetchTrendingGifs(); // Continue trending pagination
+      // Continue trending pagination
+      fetchTrendingGifs();
     }
   }
 }

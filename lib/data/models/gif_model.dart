@@ -1,3 +1,4 @@
+// Gif Model
 class GifModel {
   final String id;
   final String url;
@@ -8,7 +9,7 @@ class GifModel {
     required this.id,
     required this.url,
     required this.title,
-    this.isFavorite = false, // Default to not favorited
+    this.isFavorite = false, // Not favourite by default
   });
 
   factory GifModel.fromJson(Map<String, dynamic> json) {

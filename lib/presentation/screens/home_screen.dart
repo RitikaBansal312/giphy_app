@@ -14,14 +14,14 @@ class HomeScreen extends StatelessWidget {
     final String userId = authController.firebaseUser.value!.uid;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Giphy App'),
+        title: const Text('Giphy App'),
         actions: [
           IconButton(
-            icon: Icon(Icons.favorite),
+            icon: const Icon(Icons.favorite),
             onPressed: () => Get.to(() => FavoritesScreen()),
           ),
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               authController.signOut();
             },
@@ -30,12 +30,12 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: searchController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Search GIFs',
                 border: OutlineInputBorder(),
               ),
@@ -44,11 +44,11 @@ class HomeScreen extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           // SearchBar(onSearch: gifController.searchGifs),
           Obx(() {
             if (gifController.isLoading.value) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
             return Expanded(
               child: ListView.builder(
@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(width: 10), // Space between images
+                        SizedBox(width: 10),
                         Expanded(
                           child: secondImageIndex < gifController.gifs.length
                               ? Column(

@@ -13,30 +13,29 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
           child: Column(
             children: [
-              SizedBox(height: 70),
+              const SizedBox(height: 70),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     AppConstants.welcome_msg,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 20, 63, 99)),
                   ),
                 ],
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               TextFormField(
                 controller: emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Your email',
                   labelStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(),
@@ -48,10 +47,10 @@ class LoginScreen extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 controller: passwordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Your password',
                   labelStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(),
@@ -64,13 +63,13 @@ class LoginScreen extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Container(
                 height: 30,
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 20, 63, 99),
+                    backgroundColor: const Color.fromARGB(255, 20, 63, 99),
                   ),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
@@ -84,10 +83,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextButton(
                 onPressed: () => Get.to(() => SignUpScreen()),
-                child: Text(
+                child: const Text(
                   "Don't have an account? Sign Up",
                   style: TextStyle(color: Color.fromARGB(255, 20, 63, 99)),
                 ),

@@ -17,15 +17,15 @@ class FavoritesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Favorites'),
+        title: const Text('Favorites'),
       ),
       body: Obx(() {
         if (gifController.isLoading.value) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (gifController.gifs.isEmpty) {
-          return Center(child: Text('No favorites added.'));
+          return const Center(child: Text('No favorites added.'));
         }
 
         return ListView.builder(

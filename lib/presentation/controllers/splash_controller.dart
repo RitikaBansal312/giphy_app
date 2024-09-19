@@ -5,7 +5,9 @@ import "../screens/home_screen.dart";
 import "../screens/login_screen.dart";
 
 class SplashController extends GetxController {
-  var getStorage = AppStorage();
+  // var getStorage = AppStorage();
+
+  // Check Login
   checkLogin() async {
     // var token = getStorage.getToken() ?? "";
     var token = await AppStorage.getToken1();
@@ -17,6 +19,7 @@ class SplashController extends GetxController {
     }
   }
 
+  // Launch Screen
   launchScreen() {
     Future.delayed(const Duration(seconds: 3)).then((value) {
       // Get.offAll(LoginScreen());

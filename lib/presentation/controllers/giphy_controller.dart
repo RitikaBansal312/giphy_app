@@ -4,10 +4,12 @@ import '../../data/models/gif_model.dart';
 import '../../data/services/giphy_provider.dart';
 
 class GifController extends GetxController {
+  // Initializing Variables
   var gifs = <GifModel>[].obs;
   var isLoading = false.obs;
   var searchTerm = ''.obs;
 
+  // Firestore Instance
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   final ApiService _apiService = ApiService();
@@ -73,12 +75,15 @@ class GifController extends GetxController {
         .collection('favorites')
         .doc(gif.id);
 
-    gif.isFavorite = !gif.isFavorite; // Toggle favorite status
+    // Toggle favorite status
+    gif.isFavorite = !gif.isFavorite;
 
     if (gif.isFavorite) {
-      await userFavoritesRef.set(gif.toMap()); // Add to Firestore
+      // Add to Firestore
+      await userFavoritesRef.set(gif.toMap());
     } else {
-      await userFavoritesRef.delete(); // Remove from Firestore
+      // Remove from Firestore
+      await userFavoritesRef.delete();
     }
 
     // Update the list to reflect the favorite status change

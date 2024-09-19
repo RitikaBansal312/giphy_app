@@ -22,19 +22,21 @@ class AuthController extends GetxController {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      // Get the auth token
+
+      // Getting the auth token
       String? token = await userCredential.user?.getIdToken();
       debugPrint(token);
       isAuthenticated.value = true;
       Get.offAll(HomeScreen());
       Get.snackbar("Logged In Successfully", "success: loggedin");
+      // Locally Storing the Auth token on Successful login
       AppStorage.saveToken1(token.toString());
     } catch (e) {
       Get.snackbar('Login failed', "Error: $e");
     }
   }
 
-  // SignUp Function
+  // Sign Up Function
   Future<void> signUp(String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword(
@@ -47,8 +49,9 @@ class AuthController extends GetxController {
     }
   }
 
-  // SignOut Function
+  // Sign Out Function
   Future<void> signOut() async {
+    // Deleting the Auth token on log out
     AppStorage.clearToken1();
     await _auth.signOut();
     isAuthenticated.value = false;
