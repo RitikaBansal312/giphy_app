@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.giphyapp">
+    package="com.example.giphy_app">
     <application
         android:label="giphy_app"
         android:name="${applicationName}"

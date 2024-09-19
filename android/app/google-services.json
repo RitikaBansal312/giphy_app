@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:87406279015:android:6f91682212d8731ffed7c2",
+        "mobilesdk_app_id": "1:87406279015:android:d5edbe6cdfa212dffed7c2",
         "android_client_info": {
-          "package_name": "com.example.giphyapp"
+          "package_name": "com.example.giphy_app"
         }
       },
       "oauth_client": [],
