@@ -40,7 +40,6 @@ class SignUpScreen extends StatelessWidget {
                   labelStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(),
                 ),
-                obscureText: true,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Please enter your email address";
