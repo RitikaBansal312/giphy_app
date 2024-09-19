@@ -15,33 +15,11 @@ class SplashScreen extends StatelessWidget {
       child: Center(
         child: Image.asset(
           alignment: Alignment.center,
-          AppImages.splashImage, // Path to your image
-          width: MediaQuery.of(context)
-              .size
-              .width, // Optional: Set width for your image
-          height: MediaQuery.of(context)
-              .size
-              .height, // Optional: Set height for your image
-          // fit: BoxFit.contain, // Ensures image scaling fits
+          AppImages.splashImage,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
         ),
       ),
     ));
   }
 }
-
-// Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: [
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             crossAxisAlignment: CrossAxisAlignment.center,
-//             children: [
-//               Image(
-//                 image: AssetImage(AppImages.splashImage),
-//                 alignment: Alignment.center,
-//               ),
-//             ],
-//           ),
-//         ],
-//       ),
