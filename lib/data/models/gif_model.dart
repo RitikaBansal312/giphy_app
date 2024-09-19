@@ -2,8 +2,14 @@ class GifModel {
   final String id;
   final String url;
   final String title;
+  bool isFavorite;
 
-  GifModel({required this.id, required this.url, required this.title});
+  GifModel({
+    required this.id,
+    required this.url,
+    required this.title,
+    this.isFavorite = false, // Default to not favorited
+  });
 
   factory GifModel.fromJson(Map<String, dynamic> json) {
     return GifModel(
@@ -11,5 +17,13 @@ class GifModel {
       url: json['images']['original']['url'],
       title: json['title'],
     );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'url': url,
+      'title': title,
+    };
   }
 }

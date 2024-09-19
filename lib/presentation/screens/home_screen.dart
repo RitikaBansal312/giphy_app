@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import '../controllers/auth_controller.dart';
 import '../controllers/giphy_controller.dart';
 import 'favorites_screen.dart';
-// import '../widgets/search_bar.dart';
-// import '../widgets/gif_card.dart';
 
 class HomeScreen extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
@@ -13,6 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String userId = authController.firebaseUser.value!.uid;
     return Scaffold(
       appBar: AppBar(
         title: Text('Giphy App'),
@@ -55,28 +54,87 @@ class HomeScreen extends StatelessWidget {
               child: ListView.builder(
                 itemCount: (gifController.gifs.length / 2).ceil(),
                 itemBuilder: (context, index) {
-                  final gif = gifController.gifs[index];
-
-                  //  itemCount: (imageUrls.length / 2).ceil(),
-
                   int firstImageIndex = index * 2;
                   int secondImageIndex = firstImageIndex + 1;
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Row(
                       children: [
                         Expanded(
-                          child: Image.network(
-                            gifController.gifs[firstImageIndex].url,
-                            fit: BoxFit.cover,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Stack(
+                                children: [
+                                  Image.network(
+                                    gifController.gifs[firstImageIndex].url,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  IconButton(
+                                    icon: Icon(
+                                      gifController
+                                              .gifs[firstImageIndex].isFavorite
+                                          ? Icons.favorite
+                                          : Icons.favorite_border,
+                                      color: gifController
+                                              .gifs[firstImageIndex].isFavorite
+                                          ? Colors.red
+                                          : Colors.grey,
+                                    ),
+                                    onPressed: () {
+                                      gifController.toggleFavorite(
+                                          gifController.gifs[firstImageIndex],
+                                          userId);
+                                    },
+                                  ),
+                                ],
+                              ),
+                              // Padding(
+                              //   padding: const EdgeInsets.all(4.0),
+                              //   child: Text(gif.title),
+                              // ),
+                            ],
                           ),
                         ),
                         SizedBox(width: 10), // Space between images
                         Expanded(
                           child: secondImageIndex < gifController.gifs.length
-                              ? Image.network(
-                                  gifController.gifs[secondImageIndex].url,
-                                  fit: BoxFit.cover,
+                              ? Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        Image.network(
+                                          gifController
+                                              .gifs[secondImageIndex].url,
+                                          fit: BoxFit.cover,
+                                        ),
+                                        IconButton(
+                                          icon: Icon(
+                                            gifController.gifs[secondImageIndex]
+                                                    .isFavorite
+                                                ? Icons.favorite
+                                                : Icons.favorite_border,
+                                            color: gifController
+                                                    .gifs[secondImageIndex]
+                                                    .isFavorite
+                                                ? Colors.red
+                                                : Colors.grey,
+                                          ),
+                                          onPressed: () {
+                                            gifController.toggleFavorite(
+                                                gifController
+                                                    .gifs[secondImageIndex],
+                                                userId);
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    // Padding(
+                                    //   padding: const EdgeInsets.all(4.0),
+                                    //   child: Text(gif.title),
+                                    // ),
+                                  ],
                                 )
                               : Container(), // Empty container if no second image
                         ),
