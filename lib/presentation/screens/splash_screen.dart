@@ -12,14 +12,36 @@ class SplashScreen extends StatelessWidget {
     splashController.launchScreen();
     return Scaffold(
         body: SingleChildScrollView(
-      child: Column(
-        children: [
-          Image(
-            image: AssetImage(AppImages.splashImage),
-            alignment: Alignment.center,
-          ),
-        ],
+      child: Center(
+        child: Image.asset(
+          alignment: Alignment.center,
+          AppImages.splashImage, // Path to your image
+          width: MediaQuery.of(context)
+              .size
+              .width, // Optional: Set width for your image
+          height: MediaQuery.of(context)
+              .size
+              .height, // Optional: Set height for your image
+          // fit: BoxFit.contain, // Ensures image scaling fits
+        ),
       ),
     ));
   }
 }
+
+// Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         crossAxisAlignment: CrossAxisAlignment.center,
+//         children: [
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [
+//               Image(
+//                 image: AssetImage(AppImages.splashImage),
+//                 alignment: Alignment.center,
+//               ),
+//             ],
+//           ),
+//         ],
+//       ),

@@ -1,3 +1,3 @@
 class AppImages {
-  static String splashImage = "assets/splashImage.gif";
+  static String splashImage = "assets/splashImage.png";
 }
