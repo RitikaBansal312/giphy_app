@@ -4,7 +4,8 @@ import '../models/gif_model.dart';
 
 class ApiService {
   // Giphy API Key
-  final String apiKey = 'tGXDhEofgALm5Dt33YyCjcGQ2iBbkdEu';
+  // final String apiKey = 'tGXDhEofgALm5Dt33YyCjcGQ2iBbkdEu';
+  final String apiKey = "KJwMfngkfzeAMiOlSKC4nzUtzXqN4d0A";
   // API Base URL
   final String baseUrl = 'https://api.giphy.com/v1/gifs';
 
